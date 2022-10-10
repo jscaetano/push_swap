@@ -6,13 +6,13 @@
 /*   By: joacaeta <joacaeta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 18:21:56 by joacaeta          #+#    #+#             */
-/*   Updated: 2022/10/09 20:15:16 by joacaeta         ###   ########.fr       */
+/*   Updated: 2022/10/10 20:55:32 by joacaeta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-// Frees all lists (sa, sb, chunks)
+// Frees all lists (sa, sb, moves)
 void	free_stacks(t_stacks *lists)
 {
 	ft_stackdestroy(lists->sa);

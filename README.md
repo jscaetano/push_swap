@@ -54,4 +54,19 @@ The script usage is as follows:
 
 The bonus part is adding a checker program, that checks if the instructions successfully sort the stack 'a'. A bonus rule should be added to the make file to compile the checker executable. It should also print "OK\n" if the moves correctly sort the numbers, and "KO\n" if they dont.
 
+use make to compile mandatory part
+use make bonus to compile bonus part
+
+
+Mandatory part:
+
+./push_swap number number number ...
+or
+./push_swap "number number number ..."
+is handled.
+
+Bonus part:
+
+./push_swap "ARGS" | ./checker "ARGS"
+
 The full subject was added to the root of the repository.

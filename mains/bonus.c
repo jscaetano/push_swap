@@ -6,7 +6,7 @@
 /*   By: joacaeta <joacaeta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 18:59:41 by joacaeta          #+#    #+#             */
-/*   Updated: 2022/10/10 02:13:47 by joacaeta         ###   ########.fr       */
+/*   Updated: 2022/10/10 20:58:21 by joacaeta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,28 @@
 
 void	exec_moves(t_stacks *lists, char *move)
 {
-	if (!ft_strcmp(move, "ra"))
+
+	if (!ft_strcmp(move, "ra\n"))
 		ra(lists);
-	if (!ft_strcmp(move, "rb"))
+	if (!ft_strcmp(move, "rb\n"))
 		rb(lists);
-	if (!ft_strcmp(move, "rr"))
+	if (!ft_strcmp(move, "rr\n"))
 		rr(lists);
-	if (!ft_strcmp(move, "rra"))
+	if (!ft_strcmp(move, "rra\n"))
 		rra(lists);
-	if (!ft_strcmp(move, "rrb"))
+	if (!ft_strcmp(move, "rrb\n"))
 		rrb(lists);
-	if (!ft_strcmp(move, "rrr"))
+	if (!ft_strcmp(move, "rrr\n"))
 		rrr(lists);
-	if (!ft_strcmp(move, "sa"))
+	if (!ft_strcmp(move, "sa\n"))
 		sa(lists);
-	if (!ft_strcmp(move, "sb"))
+	if (!ft_strcmp(move, "sb\n"))
 		sb(lists);
-	if (!ft_strcmp(move, "ss"))
+	if (!ft_strcmp(move, "ss\n"))
 		ss(lists);
-	if (!ft_strcmp(move, "pa"))
+	if (!ft_strcmp(move, "pa\n"))
 		pa(lists);
-	if (!ft_strcmp(move, "pb"))
+	if (!ft_strcmp(move, "pb\n"))
 		pb(lists);
 }
 
@@ -55,19 +56,19 @@ void	get_moves(t_stacks *lists)
 	t_move	*tmp;
 	char	*line;
 
-	tmp = lists->moves->top;
 	line = get_next_line(0);
-	// printf("%s\n", get_next_line(0));
 	ft_stackpushmove(lists->moves, line);
+	tmp = lists->moves->top;
 	free(line);
 	rmoves(lists);
-	while (tmp)
+	line = get_next_line(0);
+	while (line)
 	{
-		line = get_next_line(0);
 		ft_stackpushmove(lists->moves, line);
 		free(line);
 		rmoves(lists);
 		tmp = tmp->next;
+		line = get_next_line(0);
 	}
 }
 
@@ -93,7 +94,8 @@ int	main(int argc, char **argv)
 	a = to_int(size, argv2);
 	if (issorted(a, size))
 	{
-		free_arrays(argv2);
+		if (argc == 2)
+			free_arrays(argv2);
 		free(a);
 		return (0);
 	}
@@ -101,7 +103,8 @@ int	main(int argc, char **argv)
 	lists = create_lists(a, size);
 	free(a);
 	checker(lists);
-	free_arrays(argv2);
+	if (argc == 2)
+		free_arrays(argv2);
 	free_stacks(lists);
 	return (0);
 }
