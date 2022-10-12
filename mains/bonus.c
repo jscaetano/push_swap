@@ -6,7 +6,7 @@
 /*   By: joacaeta <joacaeta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 18:59:41 by joacaeta          #+#    #+#             */
-/*   Updated: 2022/10/10 20:58:21 by joacaeta         ###   ########.fr       */
+/*   Updated: 2022/10/12 04:32:39 by joacaeta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	exec_moves(t_stacks *lists, char *move)
 {
-
 	if (!ft_strcmp(move, "ra\n"))
 		ra(lists);
 	if (!ft_strcmp(move, "rb\n"))
